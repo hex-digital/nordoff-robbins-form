@@ -1,0 +1,168 @@
+form.form {
+	color: $black;
+	margin: 0;
+	padding: 0 $spacing;
+	max-width: 700px;
+	margin: 0 auto;
+	display: block;
+
+
+
+	// Form fields
+	input, select {
+		width: 100%;
+		border: solid 1px $black;
+		background-color: transparent;
+		border-radius: 0;
+		padding: 15px 10px;
+		letter-spacing: .05em;
+		transition: border-color .25s;
+
+		&:focus {
+			border-color: $pink;
+			outline: none;
+		}
+
+		// Radios and Checkboxes
+		&[type=checkbox],
+		&[type=radio] {
+			$box: 1.6rem;
+			cursor: pointer;
+			display: flex;
+			width: $box;
+			height: $box;
+			min-width: $box;
+			min-height: $box;
+			appearance: unset;
+			padding: 0;
+
+			&:checked {
+				border-color: $pink;
+				background-color: $pink;
+			}
+		}
+
+		&[type=radio] {
+			border-radius: 50%;
+		}
+	}
+
+
+
+	// Form field rows
+	p.form-field {
+		clear: none;
+		line-height: inherit;
+		margin: 0 0 1.5rem;
+		padding: 0;
+		display: flex;
+		align-items: center;
+		gap: $spacing;
+
+
+		// Mobile media query
+		@media only screen and (max-width: 700px)  {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: .5rem;
+		}
+
+		&.required {
+			.field-label:before {
+				content: '*';
+				color: $pink;
+				margin: 0 0.25rem 0 0;
+			}
+		}
+
+		.field-label {
+			flex: 1;
+			text-align: left;
+			float: none;
+			background: none;
+			font-weight: 600;
+			cursor: pointer;
+			padding: 0;
+		}
+		input, select, span.value {
+			flex: 2;
+		}
+		span.value {
+			display: flex;
+			justify-content: start;
+			gap: $spacing;
+			span {
+				display: flex;
+				align-items: center;
+				gap: $spacing;
+				input {
+					flex: auto;
+				}
+			}
+		}
+		input.date {
+			background: none !important;
+		}
+	}
+
+
+
+
+
+	// Submit button
+	p.submit  {
+		display: flex;
+		justify-content: center;
+		margin: 0 0 2rem;
+
+		input {
+			cursor: pointer;
+			display: block;
+			width: auto;
+			padding: 1rem 2rem !important;
+			margin: 0;
+			border: none;
+			background-color: $orange;
+			color: $white;
+			text-align: center;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			font-weight: 700;
+			letter-spacing: .025em;
+			transition: all .4s;
+			&:hover {
+				background-color: $pink;
+			}
+		}
+	}
+
+
+
+	// Some Stylesheet resets
+	p.required label, span.required label {
+		background: none;
+	}
+	p label {
+		width: 100%;
+	}
+	span.value {
+		display: block;
+		margin-left: 0;
+	}
+	p label.inline {
+		cursor: pointer;
+		flex: auto;
+		background: 0 0;
+		display: inline;
+		float: none;
+		font-weight: inherit;
+		line-height: inherit;
+		margin-right: 0;
+		padding: 0;
+		text-align: left;
+	}
+	input.text {
+		width: 100%;
+	}
+}
+
